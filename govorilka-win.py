@@ -1,4 +1,4 @@
-# pip install pyttsx3, gtts
+# pip install pyttsx3
 import pyttsx3
 
 app = pyttsx3.init()
@@ -20,4 +20,3 @@ voice, text = int(input('Enter the voice number: ')), input('Enter text: ')
 while text != '0':
     speak(voice, text)
     text = input('Enter text: ')
-1
