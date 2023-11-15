@@ -1,5 +1,6 @@
 import folium
 
+# Координаты линии
 coordinates = [
     [0, None, (48.55050, 37.66750)],
     [1, 0, (48.55010, 37.66748)],
@@ -18,6 +19,7 @@ d = {}
 for c in coordinates[1:]:
     d[c[1]] = d.get(c[1], []) + [c[0]]
 
+# Создаём двойные координаты для отрезков
 double_coordinates = []
 for key, values in d.items():
     for v in values:
