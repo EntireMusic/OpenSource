@@ -1,3 +1,4 @@
+import csv
 import json
 import aiohttp
 import asyncio
@@ -26,10 +27,10 @@ async def proxy_checker(input_proxies):
 
 
 async def main():
-    with (open('input_proxies.json', 'r', encoding='utf8') as in_proxy,
+    with (open('input_proxies.csv', 'r', encoding='utf8') as in_proxy,
           open('valid_proxies.json', 'w', encoding='utf8') as out_proxy):
-        proxies = json.load(in_proxy)
-        json.dump(await proxy_checker(proxies), out_proxy, indent='\n')
+        proxies = [i[0] for i in csv.reader(in_proxy)]
+        json.dump(await proxy_checker(proxies), out_proxy, indent='\t')
 
 
 if __name__ == "__main__":
