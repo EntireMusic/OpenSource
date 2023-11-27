@@ -2,6 +2,7 @@ import json
 import aiohttp
 import asyncio
 
+
 async def proxy_checker(input_proxies):
     async def check_proxy(prox, session):
         head = {
@@ -25,9 +26,11 @@ async def proxy_checker(input_proxies):
 
 
 async def main():
-    with open('input_proxies.json', encoding='utf8') as in_proxy:
+    with (open('input_proxies.json', 'r', encoding='utf8') as in_proxy,
+          open('valid_proxies.json', 'w', encoding='utf8') as out_proxy):
         proxies = json.load(in_proxy)
-        print(await proxy_checker(proxies))
+        json.dump(await proxy_checker(proxies), out_proxy, indent='\n')
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
