@@ -12,7 +12,7 @@ async def proxy_checker(input_proxies):
                           'Chrome/88.0.4324.109 Safari/537.36 CrKey/1.54.248666'
         }
         try:
-            async with session.get('https://konstrada.gov.ua/', proxy=prox, headers=head, timeout=10) as r:
+            async with session.get('https://konstrada.gov.ua/', proxy=f'http://{prox}', headers=head, timeout=10) as r:
                 if r.status == 200:
                     print(f'VALID {prox}')
                     return prox
