@@ -1,7 +1,19 @@
-# pip install gtts
+# pip install gtts pygame
 from gtts import gTTS
+import pygame
+from time import sleep
 
-text = input()
-voice = gTTS(text)
+print('Введіть текст:')
+text = open(0, encoding='utf8').read()
+print(text)
+voice = gTTS(text, lang='uk')
 
-voice.save('voice.mp3')
+filename = 'voice.wav'
+voice.save(filename)
+
+pygame.init()
+sound = pygame.mixer.Sound(filename)
+duration_seconds = sound.get_length()
+
+sound.play()
+sleep(duration_seconds)
