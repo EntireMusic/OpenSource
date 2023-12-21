@@ -31,9 +31,10 @@ my_map = folium.Map(location=[center_lat, center_lon], zoom_start=16)
 opr = '<div style="width: 8px; height: 8px; border: 2px solid black; background-color: white;"></div>'
 tp = '<div style="width: 16px; height: 16px; border-radius: 50%; background-color: black;"></div>'
 
-# Добавляем опоры на карту
+# Добавляем ТП на карту
 folium.Marker(coordinates[0]['COORDS'], icon=folium.DivIcon(html=tp, icon_anchor=(10, 10))).add_to(my_map)
 
+# Добавляем опоры на карту
 for dot in coordinates[1:]:
     # Создаём иконки цифр
     num = BeautifyIcon(number=dot['NOMER'], background_color=False, border_color='rgba(0, 0, 0, 0)',
