@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 from folium.plugins import BeautifyIcon
 
-with open('json_lines/KTP-271 L-2.json', encoding='utf8') as input_file:
+with open('json_lines/KTP-271 L-3.json', encoding='utf8') as input_file:
     some_line = [i for i in json.load(input_file) if i.get('NOMER')]
 
 # Координаты линии
